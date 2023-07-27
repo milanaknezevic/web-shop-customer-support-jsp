@@ -15,6 +15,7 @@ public class MessageBean implements Serializable {
     private String sadrzaj;
     private boolean procitana;
     private String email;
+    private String avatar;
 
     public MessageBean() {
 

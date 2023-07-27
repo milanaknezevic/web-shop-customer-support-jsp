@@ -19,6 +19,8 @@ public class UserBean implements Serializable {
     private String prezime;
     private String korisnicko_ime;
     private String lozinka;
+    //status da li je user ulogovan
+    private Boolean status = false;
 
 
     public UserBean() {

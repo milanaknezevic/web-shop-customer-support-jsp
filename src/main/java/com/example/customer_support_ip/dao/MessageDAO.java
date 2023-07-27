@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -43,6 +44,8 @@ public class MessageDAO {
         } finally {
             connectionPool.checkIn(c);
         }
+
+        Collections.sort(messages, (m1, m2) -> Boolean.compare(!m2.isProcitana(), !m1.isProcitana()));
 
         return messages;
     }
