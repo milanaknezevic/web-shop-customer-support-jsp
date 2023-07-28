@@ -15,10 +15,11 @@
             userBean.setPrezime(user.getPrezime());
             userBean.setStatus(true);
             session.setAttribute("notification","");
+           // session.setAttribute("username", user.getKorisnicko_ime());
             response.sendRedirect("messages.jsp");
         }
         else {
-            session.setAttribute("notification","Incorrect username and password");
+            session.setAttribute("notification","Incorrect credentials");
             userBean.setStatus(false);
         }
     }

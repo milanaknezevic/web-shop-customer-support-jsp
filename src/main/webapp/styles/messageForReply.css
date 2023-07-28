@@ -1,0 +1,21 @@
+.question-email
+{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.flex-container {
+    display: flex;
+    align-items: center;
+}
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.pitanje
+{
+    border: 2px solid #d5d1d1;
+    border-radius: 4px;
+}
