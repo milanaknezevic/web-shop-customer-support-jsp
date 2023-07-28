@@ -100,8 +100,9 @@
 
                         <button type="button" class="btn btn-primary view-button"
                                 onclick="location.href='messageForReply.jsp?id=<%=message.getId()%>'">
-                            &nbsp;Reply
+                            <i class="fa fa-eye"></i> View
                         </button>
+
                     </td>
                 </tr>
                 <% } %>

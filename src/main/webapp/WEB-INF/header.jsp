@@ -13,7 +13,7 @@
             align-items: center;
         }
 
-        /* Stilizacija za link "Logout" */
+        /* Stil za link "Logout" */
         .logout-link {
             text-decoration: none;
             color: #333;
@@ -23,8 +23,10 @@
 <body>
 
 <header>
-   <h1>ETF</h1>
-    <a href="sign-out.jsp" class="logout-link">Logout</a>
+   <h2>Customer Support</h2>
+    <div >
+        <a href="sign-out.jsp" class="logout-link">Logout</a>
+    </div>
 </header>
 
 </body>

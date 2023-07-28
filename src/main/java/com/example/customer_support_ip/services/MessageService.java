@@ -12,8 +12,8 @@ import java.util.Properties;
 
 public class MessageService implements Serializable {
 
-    private static final String sender = "proEventConference@gmail.com";
-    private static final String password = "rpfxlwqjdjswxglt";
+    private static final String sender = "webshopip2@gmail.com";
+    private static final String password = "teldopnamflmtmjw";
     private static final String port = "587";
     private static final String host = "smtp.gmail.com";
 

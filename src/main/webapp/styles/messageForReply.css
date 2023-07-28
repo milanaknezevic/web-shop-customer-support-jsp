@@ -6,8 +6,10 @@
     justify-content: space-between;
 }
 .flex-container {
-    display: flex;
-    align-items: center;
+    display: flex; /* Postavlja flexbox raspored */
+    flex-direction: column; /* Elementi će biti postavljeni jedan ispod drugog */
+    align-items: flex-end; /* Elementi će biti postavljeni u skroz desnom uglu kontejnera */
+    margin: 20px; /* Opciono: Dodajte margine oko kontejnera */
 }
 .avatar {
     width: 50px;

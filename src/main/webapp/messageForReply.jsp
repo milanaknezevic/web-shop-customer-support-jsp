@@ -8,9 +8,7 @@
 <%
     if (!userBean.getStatus()) {
         response.sendRedirect("sign-in.jsp");
-    }
-    else
-    {
+    } else {
         if (request.getParameter("id") != null) {
             try {
                 int id = Integer.parseInt(request.getParameter("id"));
@@ -21,65 +19,91 @@
                 response.sendRedirect("messages.jsp");
             }
         }
+        else if (request.getParameter("submit") != null) {
+            String replyContent = request.getParameter("content"); // Retrieve the value from the parameter
+
+            System.out.println(messageBean.getEmail() + " " + replyContent);
+            messageService.sendReply(messageBean.getEmail(),replyContent,messageBean.getSadrzaj());
+            response.sendRedirect("messages.jsp");
+        }
     }
 %>
+<!doctype html>
+<%
 
-<!DOCTYPE html>
-<html>
+%>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>Reply page</title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="styles/messageForReply.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
 
+    <script>
+        function setRequired() {
+            var textarea = document.getElementById("messageReply");
+            textarea.required = true;
+        }
+
+        function removeRequired() {
+            var textarea = document.getElementById("messageReply");
+            textarea.required = false;
+        }
+    </script>
+
+    <style>
+        .center {
+            margin: auto;
+            width: 50%;
+        }
+    </style>
 </head>
 <body>
 <%@include file="WEB-INF/header.jsp" %>
-<div class="container">
+<br>
+<br>
+<h1 style="text-align: center">View Message</h1>
+<div class="card border-primary mb-3 center" style="max-width: 50rem;">
 
-    <div class="question-email">
-        <h1>Question:</h1>
-       <div class="flex-container">
-            <p style="margin-right: 10px;">from: <%= messageBean.getEmail() %></p>
-            <img src="<%= messageBean.getAvatar() %>" alt="Avatar" class="avatar">
+
+    <div class="card-body">
+        <div class="card-body">
+            <form>
+                <div class="form-group">
+                    <label class="form-label" for="receivedContent">Received message</label>
+                    <textarea class="form-control" style="min-height: 100px " id="receivedContent"
+                              name="receivedContent" disabled
+                              rows="4"><%=messageBean.getSadrzaj()%>
+                    </textarea>
+                </div>
+
+
+                <p style="text-align: right">from: <%= messageBean.getEmail() %>
+                </p>
+
+
+                <div class="form-group">
+                    <label class="form-label" for="messageReply">Reply message</label>
+                    <textarea class="form-control" style="min-height: 100px " id="messageReply" name="content" rows="4"
+                              placeholder="Reply message"></textarea>
+                </div>
+                <div style="margin-top: 20px">
+                    <button type="submit" onclick="setRequired()" id="sendButton" name="submit" style="width: 80px;background:  #1690A7" class="btn btn-primary mb-4 d-inline-block">
+                        Send
+                    </button>
+                    <button type="button" name="cancel"  id="cancelButton" style="width: 100px; padding: 5px;" class="btn btn-danger mb-4 d-inline-block"
+                            onclick=" removeRequired(); location.href='messages.jsp'">
+                        Cancel
+                    </button>
+
+
+                </div>
+            </form>
         </div>
     </div>
-    <p class="pitanje" ><%=messageBean.getSadrzaj() %></p>
-
-    <div class="form-floating">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="min-height: 100px "></textarea>
-
-    </div>
-
-    <button type="button" onclick="posaljiOdgovor()" class="btn btn-primary mt-3"> &nbsp;Send</button>
-    <button type="button" class="btn btn-primary view-button" onclick="location.href='messages.jsp'">
-        &nbsp;Cancel
-    </button>
-
-
 </div>
-
-<script>
-    // Dodajemo funkciju za ograničavanje unosa na maksimalno 3024 riječi
-    document.getElementById("floatingTextarea2").addEventListener("input", function() {
-        var maxWords = 3024;
-        var text = this.value;
-        var wordCount = text.trim().split(/\s+/).length;
-
-        if (wordCount > maxWords) {
-            var words = text.split(/\s+/);
-            words = words.slice(0, maxWords);
-            this.value = words.join(" ");
-        }
-    });
-
-</script>
-
-<!-- Dodajte Bootstrap JavaScript biblioteku na dno stranice, neposredno prije zatvaranja body taga -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
 </body>
 </html>
