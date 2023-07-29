@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="com.example.customer_support_ip.beans.UserBean" %>
+<%@ page errorPage="error.jsp" %>
+
 <jsp:useBean id="userBean" class="com.example.customer_support_ip.beans.UserBean" scope="session"/>
 <jsp:useBean id="userService" class="com.example.customer_support_ip.services.UserService" scope="application"/>
 

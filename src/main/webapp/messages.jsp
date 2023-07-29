@@ -3,6 +3,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.customer_support_ip.services.MessageService" %>
 <%@ page import="com.example.customer_support_ip.beans.MessageBean" %>
+<%@ page errorPage="error.jsp" %>
 
 <jsp:useBean id="userBean" class="com.example.customer_support_ip.beans.UserBean" scope="session"/>
 <jsp:useBean id="messageService" class="com.example.customer_support_ip.services.MessageService" scope="application"/>

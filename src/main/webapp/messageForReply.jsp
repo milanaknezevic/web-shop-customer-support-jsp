@@ -1,5 +1,6 @@
 <%@ page import="com.example.customer_support_ip.beans.MessageBean" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page errorPage="error.jsp" %>
 
 <jsp:useBean id="messageService" class="com.example.customer_support_ip.services.MessageService" scope="application"/>
 <jsp:useBean id="userBean" class="com.example.customer_support_ip.beans.UserBean" scope="session"/>
