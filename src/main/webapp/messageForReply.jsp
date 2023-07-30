@@ -66,7 +66,7 @@
 <%@include file="WEB-INF/header.jsp" %>
 <br>
 <br>
-<h1 style="text-align: center">View Message</h1>
+
 <div class="card border-primary mb-3 center" style="max-width: 50rem;">
 
 

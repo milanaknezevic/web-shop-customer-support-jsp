@@ -19,7 +19,7 @@
     <div>
         <h1>Sorry, your application encountered an error</h1>
         <h2>Oops! Something went wrong</h2>
-        <button type="button" onclick="location.href='home.jsp'">Return To Home</button>
+        <button type="button" onclick="location.href='messages.jsp'">Return To Home</button>
     </div>
 </div>
 
