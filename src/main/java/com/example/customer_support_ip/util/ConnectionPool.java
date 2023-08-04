@@ -28,7 +28,7 @@ public class ConnectionPool {
     static {
         String jdbcURL = "jdbc:mysql://localhost:3306/webshop_ip?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
         String username = "root";
-        String password = "Rihanna13";
+        String password = "root";
         String driver = "com.mysql.cj.jdbc.Driver";
         int preconnectCount = 2;
         int maxIdleConnections = 25;
